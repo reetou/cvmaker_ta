@@ -1,0 +1,7 @@
+.env
+node_modules/
+dist/
+**/**/.DS_Store
+tmp/uploads/*
+tmp/selfies/*.png
+tmp/events/**/*.png
