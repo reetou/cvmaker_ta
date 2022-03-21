@@ -11,6 +11,18 @@ type RequestBody = {
 
 const router = Router()
 
+/**
+ * @api {post} /api/ingredients Create ingredient
+ * @apiName CreateIngredient
+ * @apiGroup Ingredients
+ *
+ * @apiBody {String} name Name
+ * @apiBody {Number} amount Amount (integer)
+ * @apiBody {String} recipe_id Recipe id. If provided, assigns created ingredient to the recipe.
+ *
+ * @apiSuccess {object} ingredient Created ingredient
+ * @apiError recipe_not_found The <code>recipe_id</code> of the recipe was not found.
+ */
 router.post('/', createIngredientSchema, validate, async (req: Request<any, any, RequestBody>, res, next) => {
   try {
     const { name, amount, recipe_id } = req.body
